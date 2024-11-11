@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import pretitleImg from "../public/img/hero/pretitle-img.svg";
+import pretitleImg from "/img/hero/pretitle-img.svg";
 
 import Header from "./Header";
 
