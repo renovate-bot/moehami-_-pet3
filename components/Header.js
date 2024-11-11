@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import Logo from "/img/header/logo.svg";
+import Logo from "../public/img/header/logo.svg";
 
 const Header = () => {
   return (
