@@ -7,7 +7,7 @@ const PetNameGenerator: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const generatePetName = async () => {
-    if (!process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
+    if (!process.env.openai) {
       console.error('OpenAI API key is missing');
       return;
     }
