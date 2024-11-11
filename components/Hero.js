@@ -2,14 +2,14 @@ import React from "react";
 
 import Image from "next/image";
 
-import pretitleImg from "/img/hero/pretitle-img.svg";
+import pretitleImg from "../public/img/hero/pretitle-img.svg";
 
 import Header from "./Header";
 
 const Hero = () => {
   return (
     <section
-      className="bg-cream lg:bg-hero lg:bg-cover
+      className="bg-hero lg:bg-hero lg:bg-cover
   lg:bg-no-repeat min-h-[400px] lg:min-h-[805px]"
     >
       <Header />
