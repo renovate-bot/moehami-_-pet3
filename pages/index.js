@@ -3,6 +3,7 @@ import Pets from '../components/Pets';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Adoption from '../components/Adoption';
+import PetNameGenerator from '../components/PetNameGenerator';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
@@ -12,8 +13,9 @@ const Home = () => {
       <Hero />
       <Pets />
       <Services />
-      <Adoption />
-      <Newsletter />
+      <Adoption />  
+<PetNameGenerator />
+  <Newsletter />
       <Footer />
     </div>
   );
