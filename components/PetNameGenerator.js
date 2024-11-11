@@ -7,9 +7,14 @@ const PetNameGenerator: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const generatePetName = async () => {
+    if (!process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
+      console.error('OpenAI API key is missing');
+      return;
+    }
+
     setLoading(true);
     const configuration = new Configuration({
-      apiKey: process.env.openai, // Make sure to set this in your .env.local file
+      apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
     });
     const openai = new OpenAIApi(configuration);
 
@@ -22,7 +27,7 @@ const PetNameGenerator: React.FC = () => {
       const name = response.data.choices[0].text.trim();
       setPetName(name);
     } catch (error) {
-      console.error(error);
+      console.error('Error generating pet name:', error);
     } finally {
       setLoading(false);
     }
@@ -55,4 +60,4 @@ const PetNameGenerator: React.FC = () => {
   );
 };
 
-export default PetNameGeneratore;
+export default PetNameGenerator;
