@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 import Img1 from "../public/img/adoption/img1.png";
+import PetNameGenerator from '../components/PetNameGenerator';
 
 const Adoption = () => {
   return (
@@ -27,6 +28,7 @@ The tiger is one of the most iconic and powerful big cats, conventionally orange
         </div>
       </div>
     </section>
+<PetNameGenerator />
   );
 };
 
