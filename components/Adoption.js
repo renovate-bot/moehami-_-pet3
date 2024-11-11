@@ -28,7 +28,9 @@ The tiger is one of the most iconic and powerful big cats, conventionally orange
         </div>
       </div>
     </section>
+  <>
 <PetNameGenerator />
+  </>
   );
 };
 
