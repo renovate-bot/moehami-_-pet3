@@ -1,5 +1,8 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-
+export const metadata = {
+  title: "Tiger Names",
+  description: "We will give you the sweetiest tiger name",
+};
 export default function Document() {
   return (
     <Html>
