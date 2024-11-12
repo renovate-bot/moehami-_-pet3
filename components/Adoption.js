@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import Img1 from "../public/img/adoption/tigerzz.png";
+import tigerzz from "../public/img/adoption/tigerzz.png";
 
 
 const Adoption = () => {
@@ -11,7 +11,7 @@ const Adoption = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-x-16">
         {/* image */}
         <div className="flex-1 mb-6 lg:mb-0">
-          <Image src={tigerz} width={500} height={500} alt=" Tiger Names" />
+          <Image src={tigerzz} width={500} height={500} alt=" Tiger Names" />
         </div>
         {/* text */}
         <div className="flex-1 text-cream text-center max-w-md lg:text-left lg:max-w-none">
