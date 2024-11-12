@@ -28,7 +28,7 @@ export default function GeneratePetName() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center y-10">
       <form className="flex flex-col items-center">
         <label className="mt-4">
           <span className="text-lg font-semibold">Choose the pet gender:</span>
