@@ -3,27 +3,49 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const PetNameGenerator = () => {
   const [animalType, setAnimalType] = useState('');
   const [gender, setGender] = useState('');
   const [generatedNames, setGeneratedNames] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const generateNames = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate API call with timeout
-    setTimeout(() => {
-      const mockNames = [
-        `${gender === 'female' ? 'Luna' : 'Max'} the ${animalType}`,
-        `${gender === 'female' ? 'Bella' : 'Charlie'} the ${animalType}`,
-        `${gender === 'female' ? 'Daisy' : 'Rocky'} the ${animalType}`,
-      ];
-      setGeneratedNames(mockNames);
+    setError('');
+    setGeneratedNames([]);
+
+    try {
+      const prompt = `Generate 5 creative and unique ${gender} pet names for a ${animalType}. 
+        The names should be fun, memorable, and suitable for a ${gender} ${animalType}. 
+        Return only the names separated by commas, nothing else.`;
+
+      const response = await fetch('/api/generate-names', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate names');
+      }
+
+      const data = await response.json();
+      const nameList = data.result.split(',').map(name => name.trim());
+      setGeneratedNames(nameList);
+    } catch (err) {
+      setError('Failed to generate names. Please try again.');
+      console.error('Error:', err);
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -77,6 +99,12 @@ const PetNameGenerator = () => {
               'Generate Names'
             )}
           </Button>
+
+          {error && (
+            <Alert variant="destructive">
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
 
           {generatedNames.length > 0 && (
             <div className="mt-6 space-y-2">
