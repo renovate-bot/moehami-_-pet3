@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 
-export default function Home() {
+
   const [petType, setPetType] = useState('');
   const [gender, setGender] = useState('');
   const [generatedName, setGeneratedName] = useState('');
@@ -36,8 +36,8 @@ export default function Home() {
     } finally {
       setIsLoading(false);
     }
-  };
-export default function PetName() {
+
+export default function GeneratePetName() {
   return (
     <>
       <Head>
