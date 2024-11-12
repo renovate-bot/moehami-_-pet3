@@ -11,7 +11,7 @@ const Adoption = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-x-16">
         {/* image */}
         <div className="flex-1 mb-6 lg:mb-0">
-          <Image src={Img1} width={542} height={560} alt="" />
+          <Image src={tigerz} width={542} height={560} alt="" />
         </div>
         {/* text */}
         <div className="flex-1 text-cream text-center max-w-md lg:text-left lg:max-w-none">
