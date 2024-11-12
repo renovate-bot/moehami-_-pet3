@@ -1,8 +1,8 @@
-
+// components/PetName.tsx
 import { useState } from 'react';
 import Head from 'next/head';
 
-
+export default function PetName() {
   const [petType, setPetType] = useState('');
   const [gender, setGender] = useState('');
   const [generatedName, setGeneratedName] = useState('');
@@ -36,8 +36,8 @@ import Head from 'next/head';
     } finally {
       setIsLoading(false);
     }
+  };
 
-export default function GeneratePetName() {
   return (
     <>
       <Head>
@@ -151,5 +151,4 @@ export default function GeneratePetName() {
       </div>
     </>
   );
-}
 }
