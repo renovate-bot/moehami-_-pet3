@@ -1,62 +1,101 @@
 import { useState } from 'react';
-import { Configuration, OpenAIApi } from 'openai';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Loader2 } from 'lucide-react';
 
-const PetNameGenerator: React.FC = () => {
-  const [petType, setPetType] = useState<string>('');
-  const [petName, setPetName] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+const PetNameGenerator = () => {
+  const [animalType, setAnimalType] = useState('');
+  const [gender, setGender] = useState('');
+  const [generatedNames, setGeneratedNames] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const generatePetName = async () => {
-    if (!process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
-      console.error('OpenAI API key is missing');
-      return;
-    }
-
+  const generateNames = async (e) => {
+    e.preventDefault();
     setLoading(true);
-    const configuration = new Configuration({
-      apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
-
-    try {
-      const response = await openai.createCompletion({
-        model: 'text-davinci-003',
-        prompt: `Generate a unique name for a ${petType}.`,
-        max_tokens: 10,
-      });
-      const name = response.data.choices[0].text.trim();
-      setPetName(name);
-    } catch (error) {
-      console.error('Error generating pet name:', error);
-    } finally {
+    
+    // Simulate API call with timeout
+    setTimeout(() => {
+      const mockNames = [
+        `${gender === 'female' ? 'Luna' : 'Max'} the ${animalType}`,
+        `${gender === 'female' ? 'Bella' : 'Charlie'} the ${animalType}`,
+        `${gender === 'female' ? 'Daisy' : 'Rocky'} the ${animalType}`,
+      ];
+      setGeneratedNames(mockNames);
       setLoading(false);
-    }
+    }, 1500);
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Pet Name Generator</h1>
-      <input
-        type="text"
-        placeholder="Enter pet type (e.g., dog, cat)"
-        value={petType}
-        onChange={(e) => setPetType(e.target.value)}
-        className="border p-2 mb-4 w-full"
-      />
-      <button
-        onClick={generatePetName}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-        disabled={loading}
-      >
-        {loading ? 'Generating...' : 'Generate Pet Name'}
-      </button>
-      {petName && (
-        <div className="mt-4">
-          <h2 className="text-xl font-semibold">Generated Pet Name:</h2>
-          <p className="text-lg">{petName}</p>
-        </div>
-      )}
-    </div>
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle className="text-center">AI Pet Name Generator</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={generateNames} className="space-y-4">
+          <div>
+            <Input
+              type="text"
+              placeholder="Enter type of pet (e.g., cat, dog)"
+              value={animalType}
+              onChange={(e) => setAnimalType(e.target.value)}
+              className="bg-transparent border-gray-300"
+              required
+            />
+          </div>
+          
+          <div className="flex gap-2">
+            <Button
+              type="button"
+              variant={gender === 'male' ? 'default' : 'outline'}
+              onClick={() => setGender('male')}
+              className="flex-1"
+            >
+              Male
+            </Button>
+            <Button
+              type="button"
+              variant={gender === 'female' ? 'default' : 'outline'}
+              onClick={() => setGender('female')}
+              className="flex-1"
+            >
+              Female
+            </Button>
+          </div>
+
+          <Button 
+            type="submit" 
+            className="w-full"
+            disabled={!animalType || !gender || loading}
+          >
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Generating...
+              </>
+            ) : (
+              'Generate Names'
+            )}
+          </Button>
+
+          {generatedNames.length > 0 && (
+            <div className="mt-6 space-y-2">
+              <h3 className="font-medium">Generated Names:</h3>
+              <ul className="space-y-1">
+                {generatedNames.map((name, index) => (
+                  <li 
+                    key={index}
+                    className="p-2 rounded bg-gray-100 dark:bg-gray-800"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 
