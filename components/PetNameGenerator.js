@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const PetNameGenerator: React.FC = () => {
-  const [petType, setPetType] = useState('');
-  const [petName, setPetName] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [petType, setPetType] = useState<string>('');
+  const [petName, setPetName] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const generatePetName = async () => {
-    if (!process.env.openai) {
+    if (!process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
       console.error('OpenAI API key is missing');
       return;
     }
