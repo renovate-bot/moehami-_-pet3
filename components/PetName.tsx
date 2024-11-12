@@ -37,7 +37,7 @@ export default function Home() {
       setIsLoading(false);
     }
   };
-export default function Gname() {
+export default function PetName() {
   return (
     <>
       <Head>
