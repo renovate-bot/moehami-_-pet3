@@ -3,7 +3,7 @@ import Pets from '../components/Pets';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Adoption from '../components/Adoption';
-import PetNameGenerator from '../components/PetNameGenerator';
+import GeneratePetName from '../components/GeneratePetName';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
@@ -14,7 +14,7 @@ const Home = () => {
       <Pets />
       <Services />
       <Adoption />  
-<PetNameGenerator />
+<GeneratePetName />
   <Newsletter />
       <Footer />
     </div>
