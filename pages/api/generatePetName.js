@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { sex } = req.body;
     const prompt = `Generate a unique and creative ${sex} pet name.`;
-    
+       
     console.log("Prompt:", prompt);
 
     const response = await openai.createCompletion({
