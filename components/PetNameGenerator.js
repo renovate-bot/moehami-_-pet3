@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Button } from "ui/button";
-import { Input } from "ui/input";
-import { Card, CardHeader, CardTitle, CardContent } from "ui/card";
-import { Alert } from "ui/alert";
+import { Button } from "ui";
+import { Input } from "ui";
+import { Card, CardHeader, CardTitle, CardContent } from "ui";
+import { Alert } from "ui";
 import { Loader2 } from 'lucide-react';
 
 const PetNameGenerator = () => {
