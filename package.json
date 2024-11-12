@@ -13,7 +13,7 @@
     "openai": "^4.71.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@/components/ui": "^0.2.4"
+    "@components/ui": "^0.2.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
