@@ -6,7 +6,6 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Adoption from '../components/Adoption';
 import PetName from '../components/PetName';
-import PetNameGenerator from '../components/PetNameGenerator';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
@@ -18,7 +17,6 @@ const Home = () => {
       <Services />
       <Adoption />  
     <PetName />
-<PetNameGenerator />
   <Newsletter />
       <Footer />
     </div>
