@@ -8,6 +8,5 @@ webpack(config) {
       use: ['style-loader', 'css-loader'],
     });
 
-    return config;
   },
 module.exports = nextConfig;
