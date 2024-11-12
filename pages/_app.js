@@ -1,4 +1,4 @@
-import '@/styles/globals.css';
+//import '@/styles/globals.css';
 import { specimen } from '@next/font/google'
 
 
