@@ -10,11 +10,15 @@ const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    const { sex } = req.body;
+    const prompt = `Generate a unique and creative ${sex} pet name.`;
+
     const response = await openai.createCompletion({
       model: "text-davinci-002",
-      prompt: "Generate a unique and creative pet name.",
+      prompt,
       max_tokens: 10,
     });
+
     const petName = response.data.choices[0].text.trim();
     res.status(200).json({ petName });
   } else {
