@@ -1,9 +1,11 @@
 // import components
+import Head from 'next/head';
+
 import Pets from '../components/Pets';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Adoption from '../components/Adoption';
-import GeneratePetName from '../components/GeneratePetName';
+import PetName from '../components/PetName';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
@@ -14,7 +16,7 @@ const Home = () => {
       <Pets />
       <Services />
       <Adoption />  
-<GeneratePetName />
+    <PetName />
   <Newsletter />
       <Footer />
     </div>
