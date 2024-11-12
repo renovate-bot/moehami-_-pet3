@@ -1,10 +1,6 @@
 // import components
 import Head from 'next/head';
-<<<<<<< HEAD
-// testa23333
-=======
-// testa2
->>>>>>> 22d4abe3cac62b82860557ef161f690f0e4a8a44
+
 import Pets from '../components/Pets';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
