@@ -17,7 +17,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-        "@/*": ["./pages/*"]
+        "@/*": ["./src/*"]
     },
   },
   "include": [
