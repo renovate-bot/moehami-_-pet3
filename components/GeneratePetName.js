@@ -18,6 +18,7 @@ export default function GeneratePetName() {
         body: JSON.stringify({ sex }),
       });
       const data = await response.json();
+      console.log("Generated Pet Name:", data.petName);
       setPetName(data.petName);
     } catch (error) {
       console.error("Error generating pet name:", error);
@@ -30,7 +31,7 @@ export default function GeneratePetName() {
     <div className="flex flex-col items-center">
       <form className="flex flex-col items-center">
         <label className="mt-4">
-          <span className="text-lg font-semibold">Choose the sex of the pet:</span>
+          <span className="text-lg font-semibold">Choose the pet gender:</span>
           <select
             value={sex}
             onChange={(e) => setSex(e.target.value)}
